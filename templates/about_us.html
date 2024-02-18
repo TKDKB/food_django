@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+    About Us
+{% endblock %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/input_form.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class=" text-secondary px-4 py-5 text-center">
+        <div class="py-5">
+          <h1 class="display-5 fw-bold ">RECIPES</h1>
+          <div class="col-lg-6 mx-auto">
+            <p class="fs-5 mb-4">Welcome to RECIPES, where our passion for simplicity drives everything we do. Our mission is to make cooking and recipe tracking accessible and enjoyable for everyone, regardless of their culinary expertise. We believe that keeping track of recipes should be effortless, which is why we've designed our app to be user-friendly, intuitive, and efficient. From easy recipe input to streamlined meal planning, we're committed to providing a seamless experience that simplifies the culinary journey for all our users. Join us as we inspire and support you in your love for cooking and creating delicious meals.</p>
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                <button type="submit" class="btn btn-outline-dark">contact us</button>
+            </div>
+          </div>
+        </div>
+      </div>
+{% endblock %}
