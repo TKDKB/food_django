@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from main_app.views import home_page_view, about_us_page_view, greetings_page_view
-from users.views import edit_user
+from users.views import edit_user, show_user
 
 
 urlpatterns = [
@@ -27,5 +27,7 @@ urlpatterns = [
     path('food/', include("main_app.urls")),
     path('main', home_page_view, name="home"),
     path('about_us', about_us_page_view, name="about-us"),
-    path('profile/<username>', edit_user, name="profile")
+    path('profile/show_profile/<username>', show_user, name="show-profile"),
+    path('profile/edit', edit_user, name="edit-profile"),
+
 ]

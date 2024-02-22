@@ -17,7 +17,7 @@ class Ingredient(models.Model):
 class Recipe(models.Model):
     name = models.CharField(max_length=255, verbose_name="Название")
     description = RichTextField(verbose_name="Описание")
-    preview_image = models.ImageField(upload_to='images/', verbose_name="Превью")
+    preview_image = models.ImageField(upload_to='images/', blank=True, verbose_name="Превью")
     ingredients = models.ManyToManyField(Ingredient, verbose_name="Ингредиенты")
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Создано")
     time_minutes = models.IntegerField(

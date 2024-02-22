@@ -34,3 +34,13 @@ class IngredientCreationForm(forms.ModelForm):
             "calories": forms.NumberInput(attrs={"class": "form-control"}),
         }
 
+
+class IngredientEditionForm(forms.ModelForm):
+    class Meta:
+        model = Ingredient
+        fields = ['name', 'description', 'calories']
+        widgets = {
+            "name": forms.TextInput(attrs={"class": "form-control"}),
+            "description": CKEditorWidget,
+            "calories": forms.NumberInput(attrs={"class": "form-control"}),
+        }
