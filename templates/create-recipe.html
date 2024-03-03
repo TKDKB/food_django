@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% load static %}
+{% load crispy_forms_tags %}
 
 {% block title %}
     Create Recipe
@@ -16,19 +17,10 @@
 {% block content %}
     {#  <h1 class="header"> new note.</h1>#}
     <div class="container ">
-        <form action="{% url 'create-recipe' %}" method="post" enctype="multipart/form-data">
+        <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
 
-            {% for field in form %}
-                <div>
-                    {% if field.errors %}
-                        <div class="alert alert-danger">{{ field.errors }}</div>
-                    {% endif %}
-                    {{ field.label_tag }}
-                    <div class="text-muted">{{ field.help_text }}</div>
-                    {{ field }}
-                </div>
-            {% endfor %}
+            {{ form | crispy }}
 
             <!-- Блок кнопки -->
             <form method="post">

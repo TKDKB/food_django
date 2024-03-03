@@ -59,8 +59,7 @@ def edit_recipe(request: WSGIRequest, id: int):
     if request.method == "POST":
         form = RecipeCreationForm(request.POST, request.FILES, instance=recipe)
         if form.is_valid():
-            recipe = form.save(commit=False)
-            recipe.save()
+            recipe = form.save()
             return HttpResponseRedirect(reverse("home"))
     return render(request, 'create-recipe.html', {'form': form})
 
@@ -88,6 +87,11 @@ def edit_ingredient(request: WSGIRequest, id: int):
             ingredient = form.save()
             return HttpResponseRedirect('/')
     return render(request, 'create-ingredient.html', {'form': form})
+
+
+def show_recipe(request: WSGIRequest, recipe_id: int):
+    recipe: Recipe = get_object_or_404(Recipe, id=recipe_id)
+    return render(request, "recipe/recipe.html", {"recipe": recipe})
 
 
 def about_us_page_view(request):
